@@ -25,7 +25,7 @@ class noticiaController extends Controle {
 
         # indico a vis�o para renderizar 
         # a lista de noticias no navegador
-        $this->visao->set('titulo', 'Noticias sobre quadrinhos');
+        $this->visao->set('titulo', 'Listar Notícias');
         $this->visao->render('noticias/noticias');
     }
 
@@ -37,12 +37,13 @@ class noticiaController extends Controle {
         $lista = array();
         $this->visao->bind('lista', $lista);
         $lista = $this->noticiasModel->buscarNoticias($idNoticia);
-        $this->visao->set('titulo', 'Noticias sobre quadrinhos');
+        $this->visao->set('titulo', 'Última Notícia');
         $this->visao->render('noticias/noticia');
     }
 
     public function prepararIncluir() {
 
+        $this->visao->set('titulo', 'Incluir Notícia');
         $this->visao->render('noticias/incluir');
 
         die;
@@ -51,13 +52,14 @@ class noticiaController extends Controle {
     public function incluir() {
 
         $titulo = Request::get('titulo');
+        $texto = Request::get('texto');
         $imagem = Request::get('imagem');
         $idUsuario = Request::get('idUsuario');
         
         $this->modelo('noticiasModel');
-        $this->noticiasModel->incluirNoticia($titulo, $imagem, $idUsuario);
+        $this->noticiasModel->incluirNoticia($titulo, $texto, $imagem, $idUsuario);
         $this->visao->set('titulo', 'Noticias sobre quadrinhos');
-//        $this->visao->render('noticias/noticia');
+        $this->visao->render('teste');
 
         die;
     }

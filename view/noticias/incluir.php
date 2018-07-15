@@ -7,6 +7,9 @@
                 <td>Título<input type="text" name='titulo' id='titulo' value=''></td>
             </tr>
             <tr>
+                <td>Texto<input type="text" name='texto' id='texto 'value=''></td>
+            </tr>
+            <tr>
                 <td>Imagem<input type="text" name='imagem' id='imagem' value=''></td>
             </tr>
             <tr>

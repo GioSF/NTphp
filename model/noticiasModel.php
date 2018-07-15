@@ -73,11 +73,11 @@ class noticiasModel {
         return $lista;
     }
 
-    public function incluirNoticia($titulo, $imagem, $idUsuario) {
+    public function incluirNoticia($titulo, $texto, $imagem, $idUsuario) {
 
         $bdNoticias = UniversalConnect::MySQLConectar();
-        $sql01 = "INSERT INTO noticias (titulo, imagem, idUsuario)"
-                . "VALUES ('$titulo','$imagem','$idUsuario')";
+        $sql01 = "INSERT INTO noticias (titulo, texto, imagem, idUsuario)"
+                . "VALUES ('$titulo','$texto','$imagem','$idUsuario')";
 //        
         if ($bdNoticias->query($sql01) === TRUE) {
             printf("Gravado com sucesso: %s <br/>", $sql01);
